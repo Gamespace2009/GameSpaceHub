@@ -6,6 +6,33 @@
     padding: 0;
     box-sizing: border-box;
 }
+#logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.icon {
+    font-size: 48px;
+    filter: drop-shadow(0 0 20px #00D4FF);
+}
+
+.main {
+    font-size: 40px;
+    font-weight: 900;
+    color: #00D4FF;
+    text-shadow: 0 0 30px #00D4FF, 0 0 60px #9B59B6;
+}
+
+.sub {
+    font-size: 14px;
+    color: #9B59B6;
+    letter-spacing: 4px;
+    margin-top: 5px;
+    display: block;
+}
 
 body {
 
