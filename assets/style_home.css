@@ -6,6 +6,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
 #logo {
     display: flex;
     align-items: center;
@@ -129,35 +137,34 @@ em {
         
     }
 }
-@media (max-width: 600px) {
-    #logo {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        width: 100%;
-        box-sizing: border-box;
-        gap: 4px;
-    }
+#logo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    gap: 2px;
+}
 
-    .icon {
-        font-size: 24px !important;
-        flex-shrink: 0;
-    }
+.icon {
+    font-size: 28px !important;
+    flex-shrink: 0;
+}
 
-    .main {
-        font-size: 22px !important;
-        text-align: center;
-        word-break: break-word;
-        flex: 1 1 100%;
-    }
+.main {
+    font-size: 20px !important;
+    text-align: center;
+    word-break: break-word;
+    flex: 0 1 auto;
+    max-width: 90%;
+}
 
-    .sub {
-        font-size: 11px !important;
-        letter-spacing: 2px;
-        text-align: center;
-        width: 100%;
-        flex: 1 1 100%;
-    }
+.sub {
+    font-size: 12px !important;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 100%;
 }
