@@ -97,6 +97,7 @@ html, body {
 }
 
 .line {
+    font-family: "Gabriela", serif;
     background: #1A0533;
     font-style: italic;
     text-align: center;
