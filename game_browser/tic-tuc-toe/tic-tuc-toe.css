@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    background: #120C40;
+}
+#grid{
+    display: block;
+    padding: 0;
+    width: 222px;
+    height: 222px;
+    float: left;
+    padding: 0;
+    margin: 15% 44%;
+}
+#one, #two, #three, #four, #five, #six, #seven, #eich, #nine {
+    background: url('img/пустая клетка.png');
+    width: 70px;
+    height: 70px;
+    float: left;
+    border: 2px solid wheat;
+}
+#des_hd {
+    display: block;
+    height: 25px;
+    text-align: center;
+    margin-top: 50px;
+    color: bisque;
+    font-size: 24px;
+}
+

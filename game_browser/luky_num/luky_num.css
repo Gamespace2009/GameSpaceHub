@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: url(img/gpt-image-2_тёмно-фиолетовый_фон_с_ярко_сиреневыми_узор-0.jpg);
+    font-size: 24px;
+    color:bisque;
+}
+#game_space {
+    margin-top: 300px;
+    display: none;
+    float:left;
+    margin-left: 400px;
+    height: 40px;
+}
+#rules {
+    text-align:justify;
+    display: block;
+    width: 75%;
+    margin: 200px;
+}
+#rules:hover{
+    color: aqua;
+    cursor:pointer;
+}
+#theory {
+    width: 270px;
+}

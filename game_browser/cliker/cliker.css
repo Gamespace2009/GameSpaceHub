@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    background: #080526;
+}
+
+
+#one {
+    display: block;
+    background: url("img/метеорит.png") no-repeat center/cover;
+    text-align: center;
+    margin: 9% 35%;
+    width: 504px;
+    height: 504px;
+    color: #00D4FF;
+    cursor: pointer;
+
+}
