@@ -89,7 +89,7 @@ html, body {
     background: transparent;
     color: #b0b0d0;
     padding: 20px;
-    font-family: "Gabriela", serif;
+    /* font-family: "Gabriela", serif; */
     font-size: 18px;
     line-height: 1.8;
     max-width: 900px;
