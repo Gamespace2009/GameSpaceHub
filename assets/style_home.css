@@ -53,3 +53,48 @@
     font-size: 26px;
 }
 
+/* ===== АДАПТАЦИЯ ПОД ТЕЛЕФОН ===== */
+@media (max-width: 768px) {
+    #head {
+        height: auto;
+        padding: 15px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home {
+        float: none;
+        display: block;
+        width: 90%;
+        margin: 5px auto;
+        font-size: 18px;
+        padding: 10px 0;
+        background: #323E7D;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .home:not(:last-of-type) {
+        margin-right: auto;
+    }
+
+    .main_text {
+        margin-top: 0;
+        padding: 15px;
+        font-size: 16px;
+        line-height: 1.6;
+        height: auto;
+        text-align: left;
+    }
+
+    .line {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    em {
+        display: block;
+        margin-top: 10px;
+    }
+}
