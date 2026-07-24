@@ -7,38 +7,43 @@
     <link rel="stylesheet" href="assets/style_game_bowser.css">
 </head>
 <body>
-    <div id="tic-tuc-toe" class="game_cards" onclick="card_on(this)">
-        <img src="game_browser/img/tic-tuc-toe.png" alt="tic tuc toe">
-        <h4>крестики нолики</h4>
+
+    <!-- ===== КОНТЕЙНЕР С КАРТОЧКАМИ ===== -->
+    <div id="games-container">
+
+        <div id="tic-tuc-toe" class="game_cards" onclick="card_on(this)">
+            <img src="game_browser/img/tic-tuc-toe.png" alt="tic tuc toe">
+            <h4>Крестики-нолики</h4>
+        </div>
+
+        <div id="luky_num" class="game_cards" onclick="card_on(this)">
+            <img src="game_browser/img/luky_num.png" alt="luky_num">
+            <h4>Угадай число</h4>
+        </div>
+
+        <div id="cliker" class="game_cards" onclick="card_on(this)">
+            <img src="game_browser/img/cliker.png" alt="cliker">
+            <h4>Комета-кликер</h4>
+        </div>
+
+        <div id="memory-match" class="game_cards" onclick="card_on(this)">
+            <img src="game_browser/img/memory-match.png" alt="memory-match">
+            <h4>Найди пару</h4>
+        </div>
+
     </div>
-    <div id="luky_num" class="game_cards" onclick="card_on(this)">
-        <img src="game_browser/img/luky_num.png" alt="luky_num">
-        <h4>Угадай число</h4>
-    </div>
-    <div id="cliker" class="game_cards" onclick="card_on(this)">
-        <img src="game_browser/img/cliker.png" alt="cliker">
-        <h4>Камета кликер</h4>
-    </div>
-    <div id="memory-match" class="game_cards" onclick="card_on(this)">
-        <img src="game_browser/img/memory-match.png" alt="memory-match">
-        <h4>Найди пару</h4>
-    </div>
 
-
-
-
-
-
-
-    <div id="window_description" >
-        <img src="" alt="картинка игры" id="img_game">
+    <!-- ===== МОДАЛЬНОЕ ОКНО ===== -->
+    <div id="window_description">
         <div id="close" onclick="card_off(this)"></div>
+        <img src="" alt="картинка игры" id="img_game">
         <h4 id="name_game"></h4>
         <h4 id="description"></h4>
         <h4 id="rules"></h4>
-        <button id="play" onclick="play()">===============Играть===============</button>
+        <button id="play" onclick="play()">Играть</button>
     </div>
+
     <script src="описание игр.js"></script>
-    
+
 </body>
 </html>
