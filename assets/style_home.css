@@ -43,11 +43,12 @@ body {
 }
 
 .main_text {
-    font-family: "Gabriela", serif;
+    background: transparent; /* чтобы не было белого фона */
     color: #b0b0d0;
+    padding: 20px;
+    font-family: "Gabriela", serif;
     font-size: 18px;
     line-height: 1.8;
-    padding: 20px;
     max-width: 900px;
     margin: 0 auto;
 }
