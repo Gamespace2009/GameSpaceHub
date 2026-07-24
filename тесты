@@ -140,6 +140,9 @@ body {
     cursor: pointer;
     transition: 0.3s;
     margin-top: 15px;
+    display: block;
+    margin: 20px auto 0 auto;   
+    text-align: center;
 }
 
 #play:hover {
