@@ -8,7 +8,7 @@ function card_on(el) {
     document.getElementById('window_description').style.display= 'block'
     img_game.src = 'game_browser/img/' + el.id + '.png'
     if (el.id == "tic-tuc-toe"){
-        description.textContent = 'Описание:<br> Крестики-нолики — настольная логическая игра для двух участников на квадратном поле 3x3.'
+        description.innerHTML = 'Описание:<br> Крестики-нолики — настольная логическая игра для двух участников на квадратном поле 3x3.'
         name_game.textContent = "Крестики Нолики"
         rules.innerHTML = 'Правила:<br> Участники по очереди заполняют пустые клетки своим символом. Победа присуждается игроку, который первым составит непрерывный ряд из трёх своих знаков (горизонтально, вертикально или диагонально).'
     }

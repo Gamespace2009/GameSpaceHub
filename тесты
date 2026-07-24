@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabriela&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gabriela", serif;
+}
+
+body {
+    background: #0A061F;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ===== КАРТОЧКИ ИГР ===== */
+.game_cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #0A061F;
+    width: 200px;
+    border: 2px solid #1D1159;
+    border-radius: 15px;
+    padding: 15px 10px;
+    margin: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.game_cards:hover {
+    border-color: #9B59B6;
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+}
+
+.game_cards h4 {
+    color: #00D4FF;
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* ===== КОНТЕЙНЕР С КАРТОЧКАМИ ===== */
+#games-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 0;
+}
+
+/* ===== ОКНО ОПИСАНИЯ ===== */
+#window_description {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #0A061F;
+    color: #00D4FF;
+    border: 3px solid #300D75;
+    border-radius: 20px;
+    padding: 25px 20px 30px;
+    z-index: 1000;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 50px rgba(48, 13, 117, 0.6);
+}
+
+#window_description.active {
+    display: flex;
+}
+
+/* ===== КНОПКА ЗАКРЫТИЯ ===== */
+#close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: url('../game_browser/img/close.png') no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+    border: none;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+#close:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+/* ===== КАРТИНКА В ОКНЕ ===== */
+#img_game {
+    max-width: 120px;
+    height: auto;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+/* ===== НАЗВАНИЕ ===== */
+#name_game {
+    font-size: 28px;
+    text-align: center;
+    color: #00D4FF;
+    text-shadow: 0 0 20px #00D4FF;
+    margin: 10px 0;
+}
+
+/* ===== ОПИСАНИЕ И ПРАВИЛА ===== */
+#description, #rules {
+    width: 100%;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #b0b0d0;
+    margin: 8px 0;
+}
+
+#rules {
+    margin-top: 5px;
+}
+
+/* ===== КНОПКА ИГРАТЬ ===== */
+#play {
+    background: #120C40;
+    color: #00D4FF;
+    border: 2px solid #300D75;
+    border-radius: 30px;
+    padding: 12px 40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+#play:hover {
+    background: #300D75;
+    color: #fff;
+    box-shadow: 0 0 30px #9B59B6;
+}
+
+/* ===== ПЛЕЙСХОЛДЕР (если карточек нет) ===== */
+#games-container p {
+    color: #787699;
+    font-size: 18px;
+    text-align: center;
+    padding: 40px;
+}
+
+/* ===== АДАПТАЦИЯ ПОД ТЕЛЕФОН ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    #games-container {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .game_cards {
+        width: 160px;
+        padding: 10px;
+        margin: 8px;
+    }
+
+    .game_cards h4 {
+        font-size: 15px;
+    }
+
+    #window_description {
+        width: 95%;
+        padding: 20px 15px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-height: 80vh;
+    }
+
+    #name_game {
+        font-size: 22px;
+    }
+
+    #description, #rules {
+        font-size: 14px;
+    }
+
+    #img_game {
+        max-width: 80px;
+    }
+
+    #play {
+        padding: 10px 30px;
+        font-size: 17px;
+    }
+}
