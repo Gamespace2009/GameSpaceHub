@@ -43,19 +43,19 @@ function hod(el){
     ((one.dataset.value== "0" && five.dataset.value== "0" && nine.dataset.value== "0" ) || (free.dataset.value== "0" && five.dataset.value== "0" && seven.dataset.value== "0" ))) {
         grid.style.display = "none";
         des_hd.textContent = "Победили нолики";
-        var timer = setTimeout(function chec(){res = confirm("Вы хотите начать сначала?"); restart()}, 3000);
+        var timer = setTimeout(function(){res = confirm("Вы хотите начать сначала?"); restart()}, 3000);
     }
     else if (((one.dataset.value== "1" && two.dataset.value== "1" && free.dataset.value== "1" ) || (four.dataset.value== "1" && five.dataset.value== "1" && six.dataset.value== "1" )|| (seven.dataset.value== "1" && eich.dataset.value== "1" && nine.dataset.value== "1" )) ||
     ((one.dataset.value== "1" && four.dataset.value== "1" && seven.dataset.value== "1" ) || (two.dataset.value== "1" && five.dataset.value== "1" && eich.dataset.value== "1" )|| (free.dataset.value== "1" && six.dataset.value== "1" && nine.dataset.value== "1" )) ||
     ((one.dataset.value== "1" && five.dataset.value== "1" && nine.dataset.value== "1" ) || (free.dataset.value== "1" && five.dataset.value== "1" && seven.dataset.value== "1" ))) {
         grid.style.display = "none";
         des_hd.textContent = "Победили крестики";
-        var timer = setTimeout(function chec(){res = confirm("Вы хотите начать сначала?"); restart()}, 3000);
+        var timer = setTimeout(function(){res = confirm("Вы хотите начать сначала?"); restart()}, 3000);
     }
     else if (score == 9) {
         grid.style.display = "none";
         des_hd.textContent = "победила дружба";
-        var timer = setTimeout(function chec(){res = confirm("Вы хотите начать сначала?"); restart()}, 3000);
+        var timer = setTimeout(function(){res = confirm("Вы хотите начать сначала?"); restart()}, 3000);
     } 
 }
 
@@ -65,7 +65,7 @@ function hod(el){
 
 function restart(){ 
     if (res){
-        grid.style.display = "block";
+        grid.style.display = "flex";
         if (hd == 0) des_hd.textContent = "Ходит Нолик";
         if (hd == 1) des_hd.textContent = "Ходит Крестик";
         score = 0;

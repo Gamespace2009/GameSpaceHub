@@ -3,7 +3,48 @@
     padding: 0;
     background: #120C40;
 }
-#grid{
+
+
+#status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+}
+
+#grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 222px;
+    max-height: 222px;
+
+}
+
+#grid > * { /* стили для всех прямых детей */
+    background: url('img/пустая клетка.png');
+    width: 70px;
+    height: 70px;
+    border: 2px solid bisque;
+}
+
+#des_hd {
+    height: 25px;
+    width: 100%;
+    max-width: 222px;
+    text-align: center;
+    color: bisque;
+    font-size: 24px;
+
+}
+
+
+
+
+/* #grid{
     display: block;
     padding: 0;
     width: 222px;
@@ -26,5 +67,5 @@
     margin-top: 50px;
     color: bisque;
     font-size: 24px;
-}
+} */
 
