@@ -7,7 +7,7 @@ var theory;
 var answer = document.getElementById("answer")
 function start(el) {
     el.style.display = "none"
-    game_space.style.display = "block"
+    game_space.style.display = "flex"
     random_num = Math.floor(Math.random() * 100) + 1;
     attempts = 0;
 }

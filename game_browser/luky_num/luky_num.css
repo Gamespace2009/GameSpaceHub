@@ -3,27 +3,37 @@
     padding: 0;
 }
 body {
-    background: url(img/gpt-image-2_тёмно-фиолетовый_фон_с_ярко_сиреневыми_узор-0.jpg);
+    display: flex;
+    background: url(img/gpt-image-2_тёмно-фиолетовый_фон_с_ярко_сиреневыми_узор-0.jpg) no-repeat fixed;
+    background-size: cover;
+    background-position: center;
     font-size: 24px;
     color:bisque;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 #game_space {
-    margin-top: 300px;
     display: none;
-    float:left;
-    margin-left: 400px;
-    height: 40px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 50px;
+    width: 100%;
+    max-width: 350px;
+    gap: 25px;
+
+}
+#game_space > * {
+    height: 50px;
 }
 #rules {
-    text-align:justify;
-    display: block;
-    width: 75%;
-    margin: 200px;
+    text-align: center;
+    width: 70%;
+
 }
 #rules:hover{
     color: aqua;
     cursor:pointer;
-}
-#theory {
-    width: 270px;
 }
