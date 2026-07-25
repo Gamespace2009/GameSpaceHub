@@ -30,7 +30,7 @@ body {
 }
 .game_cards img {
     width: 100%;
-    max-width: 100%;
+    max-width: 220px;
     max-height: 120px; 
     display: block;
     border-radius: 8px;
