@@ -19,14 +19,16 @@ body {
     display: none;
     flex-direction: row;
     flex-wrap: wrap;
-    height: 50px;
+    height:  100%;
+    max-height: 50px;
     width: 100%;
     max-width: 350px;
     gap: 25px;
 
 }
 #game_space > * {
-    height: 50px;
+    height: 100%;
+    max-height: 50px;
 }
 #rules {
     text-align: center;
@@ -36,4 +38,22 @@ body {
 #rules:hover{
     color: aqua;
     cursor:pointer;
+}
+
+@media (max-width: 600px) {
+    #game_space {
+        max-width: 100%;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    #rules {
+        width: 90%;
+        font-size: 18px;
+    }
+
+    body {
+        font-size: 18px;
+        padding: 10px;
+    }
 }
