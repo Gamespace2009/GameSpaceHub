@@ -1,4 +1,5 @@
 var hd = 1;
+var score = 0;
 var des_hd = document.getElementById('des_hd');
 var one = document.getElementById('one');
 var two = document.getElementById('two');
@@ -25,11 +26,13 @@ function hod(el){
             el.style.background = "url('img/нолик.png')";
             el.dataset.value = "0";
             hd=1;
+            score ++
         }
         else if (hd == 1){
             el.style.background = "url('img/крестик.png')";
             el.dataset.value = "1";
             hd=0;
+            score ++
         }
     }
     if (hd == 0) des_hd.textContent = "Ходит Нолик";
@@ -49,7 +52,11 @@ function hod(el){
         des_hd.textContent = "Победили крестики";
         var timer = setTimeout(function chec(){res = confirm("Вы хотите начать сначала?"); restart()}, 3000);
     }
-    
+    else if (score == 9) {
+        grid.style.display = "none";
+        des_hd.textContent = "победила дружба";
+        var timer = setTimeout(function chec(){res = confirm("Вы хотите начать сначала?"); restart()}, 3000);
+    } 
 }
 
 
