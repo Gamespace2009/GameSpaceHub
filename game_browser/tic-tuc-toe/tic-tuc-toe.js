@@ -19,7 +19,7 @@ if (hd == 1) des_hd.textContent = "Ходит Крестик";
 
 var res;
 function hod(el){
-    console.log(el.dataset.value)
+    console.log(el.dataset.value);
     
     if (el.dataset.value == "3") {
         if (hd == 0) {
@@ -32,7 +32,7 @@ function hod(el){
             el.style.background = "url('img/крестик.png')";
             el.dataset.value = "1";
             hd=0;
-            score ++
+            score ++;
         }
     }
     if (hd == 0) des_hd.textContent = "Ходит Нолик";
@@ -68,9 +68,11 @@ function restart(){
         grid.style.display = "block";
         if (hd == 0) des_hd.textContent = "Ходит Нолик";
         if (hd == 1) des_hd.textContent = "Ходит Крестик";
+        score = 0;
         for (var i = 0; i<grid_cl.length; i++) {
             grid_cl[i].style.background = "url('img/пустая клетка.png')";
             grid_cl[i].dataset.value = "3";
+
         }
     }
     else {window.location.href = "../../game_home1.html"}
