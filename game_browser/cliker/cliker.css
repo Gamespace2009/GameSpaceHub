@@ -6,13 +6,15 @@
 
 
 #one {
-    display: block;
-    background: url("img/метеорит.png") no-repeat center/cover;
+    display: flex;
+    background: url("img/метеорит.png") no-repeat;
     text-align: center;
-    margin: 9% 35%;
+    background-size: contain;
+    margin: 25%;
+    align-items: center;
+    justify-content: center;
     width: 504px;
     height: 504px;
     color: #00D4FF;
     cursor: pointer;
-
 }
