@@ -25,6 +25,7 @@
 @media (max-width: 600) {
     #one {
         user-select: none;
+        margin: 0;
         width: 252px;
         height: 252px;
 
