@@ -22,7 +22,7 @@
 #score {
     background: none;
 }
-@media (max-width: 300) {
+@media (max-width: 600) {
     #one {
         user-select: none;
         width: 252px;
