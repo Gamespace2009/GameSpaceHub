@@ -3,17 +3,17 @@
     padding: 0;
     background: #080526;
     user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
 #one {
-    display: flex;
     background: url("img/метеорит.png") no-repeat;
     text-align: center;
     /* background-size: contain; */
-    margin: 25%;
-    align-items: center;
-    justify-content: center;
+    /* margin: 25%; */
     width: 504px;
     height: 504px;
     color: #00D4FF;
@@ -24,8 +24,6 @@
 }
 @media (max-width: 600) {
     #one {
-        align-items: center;
-        justify-content: left;
         user-select: none;
         margin: 0;
         width: 80px;
