@@ -37,10 +37,11 @@
 @media (max-width: 600) {
     #one {
         background: none;
-    }
-    #meteor {
         zoom: 40%;
     }
+    /* #meteor {
+        
+    } */
     
 
 }
