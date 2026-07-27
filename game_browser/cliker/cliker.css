@@ -1,41 +1,61 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     background: #080526;
     user-select: none;
 }
 
-
-#one {
+body {
+    min-height: 100vh;
     display: flex;
-    position: relative;
-
-    display: flex;
-    text-align: center;
-    margin-left: 25%;
     align-items: center;
     justify-content: center;
-    width: 504px;
-    height: 100vh;
+}
+
+#one {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 504px;
     cursor: pointer;
-} 
-#meteor{
+}
+
+#meteor {
     display: block;
     background: none;
-    width: 504px; /* или нужный размер */
+    width: 100%;
+    max-width: 504px;
     height: auto;
     pointer-events: none;
 }
+
 #score {
     color: #00D4FF;
     position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     background: none;
+    font-size: 48px;
+    font-weight: bold;
     pointer-events: none;
 }
+
+/* ===== ТЕЛЕФОН ===== */
 @media (max-width: 600px) {
-#one {
-    zoom: 10%;
-} 
+    #one {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    #meteor {
+        max-width: 100%;
+    }
+
+    #score {
+        font-size: 32px;
+    }
 }
