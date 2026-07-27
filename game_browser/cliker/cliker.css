@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     background: #080526;
+    user-select: none;
 }
 
 
@@ -17,4 +18,7 @@
     height: 504px;
     color: #00D4FF;
     cursor: pointer;
+}
+#score {
+    background: none;
 }
