@@ -36,31 +36,6 @@
 }
 @media (max-width: 600px) {
 #one {
-    position: relative;
-    display: flex;
     zoom: 40%;
-    display: flex;
-    text-align: center;
-    margin-left: 25%;
-    align-items: center;
-    justify-content: center;
-    width: 84px;
-    height: 100vh;
-    cursor: pointer;
 } 
-#meteor{
-    display: block;
-    background: none;
-    width: 80px; /* или нужный размер */
-    height: auto;
-    pointer-events: none;
-}
-#score {
-    color: #00D4FF;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: none;
-    pointer-events: none;
-}
 }
