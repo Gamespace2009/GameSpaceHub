@@ -7,8 +7,8 @@
 
 
 #one {
+    display: flex;
     position: relative;
-    /* display: inline-block; */
 
     display: flex;
     text-align: center;
@@ -35,13 +35,32 @@
     pointer-events: none;
 }
 @media (max-width: 600) {
-    #one {
-        background: none;
-        zoom: 40%;
-    }
-    /* #meteor {
-        
-    } */
-    
-
+#one {
+    position: relative;
+    display: flex;
+    zoom: 40%;
+    display: flex;
+    text-align: center;
+    margin-left: 25%;
+    align-items: center;
+    justify-content: center;
+    width: 504px;
+    height: 100vh;
+    cursor: pointer;
+} 
+#meteor{
+    display: block;
+    background: none;
+    width: 504px; /* или нужный размер */
+    height: auto;
+    pointer-events: none;
+}
+#score {
+    color: #00D4FF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: none;
+    pointer-events: none;
+}
 }
