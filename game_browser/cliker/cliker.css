@@ -22,3 +22,13 @@
 #score {
     background: none;
 }
+@media (max-width: 300) {
+    #one {
+        user-select: none;
+        width: 252px;
+        height: 252px;
+
+    }
+    
+
+}
