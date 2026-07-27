@@ -26,7 +26,7 @@ function level_up(){
         phon.style.backgroundImage = `url(${kometa[i]})`;
         phon.style.backgroundRepeat = "no-repeat";
         phon.style.backgroundPosition = "center";
-        phon.style.backgroundSize = "cover";
+        phon.style.backgroundSize = "contain";
         i++;
     }
 }
