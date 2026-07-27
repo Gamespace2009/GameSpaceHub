@@ -51,7 +51,7 @@
 #meteor{
     display: block;
     background: none;
-    width: 504px; /* или нужный размер */
+    width: 80px; /* или нужный размер */
     height: auto;
     pointer-events: none;
 }
