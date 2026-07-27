@@ -4,7 +4,7 @@ var i = 0;
 var p = 100;
 var e = 10;
 var skore = document.getElementById("score");
-var phon = document.getElementById("one");
+var phon = document.getElementById("meteor");
 var kometa = ["img/разгорание.png", "img/разгорание X2.png", "img/разгорание X3.png", "img/сверхнова.png",];
 function scores() {
     q += y;
@@ -23,10 +23,8 @@ function level_up(){
     }
     p*= 100;
     if (i < kometa.length) { 
-        phon.style.backgroundImage = `url(${kometa[i]})`;
-        phon.style.backgroundRepeat = "no-repeat";
-        phon.style.backgroundPosition = "center";
-        phon.style.backgroundSize = "contain";
+        phon.src = `${kometa[i]}`;
+        
         i++;
     }
 }
