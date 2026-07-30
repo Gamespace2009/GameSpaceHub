@@ -22,6 +22,10 @@ function test(el) {
     else if (theory > random_num)  {
         answer.textContent = "нужно число по меньше";
     }
+    else if (input.value === "" || isNaN(theory)) {
+        answer.textContent = "введите корректное число";
+        return; 
+    }
     else {
         answer.textContent = "вы угадали  загаданное число";
         let timer = setTimeout(function(){
