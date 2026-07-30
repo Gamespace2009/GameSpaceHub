@@ -32,22 +32,18 @@ body {
     text-align: center;
     font-family: 'Gabriela';
 }
-/*
-.pole {
-    width: 100px;
-    height: 100px;
-    background-color: #383838;
-    cursor: pointer;
-    float: left;
-    border: 2px solid #300D75;
-}
-#score {
-    color: bisque;
-    text-align: center;
-    float: center;
-    font-family: 'Gabriela';
-}*/
+
 .disabled {
     pointer-events: none;
     opacity: 0.9;
+}
+
+@media(max-width: 600px) {
+    #pole {
+        max-width: 250px;
+    }
+    .pole{
+        max-width: 50px;
+        max-height: 50px;
+    }
 }
