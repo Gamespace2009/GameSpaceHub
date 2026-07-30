@@ -25,7 +25,7 @@ body {
     gap: 20px;
 
 }
-#pusk:hover:focus {
+#pusk:hover, #pusk:focus {
     border: 3px solid red;
 }
 #game_space > * {
