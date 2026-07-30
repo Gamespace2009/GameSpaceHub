@@ -41,12 +41,11 @@ body {
 @media (max-width: 600px) {
     #pole {
         max-width: 100%;
-        gap: 4px;
         justify-content: center;
     }
 
     .pole {
-        width: calc(25% - 4px);
+        width: calc(25%);
         max-width: 100px;
         height: 100px;
     }
@@ -55,6 +54,6 @@ body {
 @media (max-width: 400px) {
     .pole {
         height: 80px;
-        width: calc(25% - 4px);
+        width: calc(25%);
     }
 }
