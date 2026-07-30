@@ -26,7 +26,7 @@ body {
 
 }
 #pusk:hover {
-    border: red;
+    border: 3px solid red;
 }
 #game_space > * {
     height: 100%;
