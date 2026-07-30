@@ -4,11 +4,35 @@
     padding: 0;
     background: #000;
 }
-#pole { /*само поле*/
-    margin: 40px;
-    width: 500px;
-    
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
+
+#pole {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.pole {
+    width: 100px;
+    height: 100px;
+    background-color: #383838;
+    cursor: pointer;
+    border: 2px solid #300D75;
+}
+#score {
+    color: bisque;
+    text-align: center;
+    font-family: 'Gabriela';
+}
+/*
 .pole {
     width: 100px;
     height: 100px;
@@ -22,7 +46,7 @@
     text-align: center;
     float: center;
     font-family: 'Gabriela';
-}
+}*/
 .disabled {
     pointer-events: none;
     opacity: 0.9;
