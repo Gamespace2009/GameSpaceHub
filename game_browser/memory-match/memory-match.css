@@ -38,11 +38,23 @@ body {
     opacity: 0.9;
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
     #pole {
-        width: 250px;
+        max-width: 100%;
+        gap: 4px;
+        justify-content: center;
     }
-    .pole{
-        width: 50px;
+
+    .pole {
+        width: calc(33.33% - 4px);
+        max-width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 400px) {
+    .pole {
+        height: 80px;
+        width: calc(33.33% - 4px);
     }
 }
