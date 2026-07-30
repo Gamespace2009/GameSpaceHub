@@ -40,10 +40,9 @@ body {
 
 @media(max-width: 600px) {
     #pole {
-        max-width: 250px;
+        width: 250px;
     }
     .pole{
-        max-width: 50px;
-        max-height: 50px;
+        width: 50px;
     }
 }
