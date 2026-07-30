@@ -4,9 +4,7 @@
 }
 body {
     display: flex;
-    background: url(img/gpt-image-2_тёмно-фиолетовый_фон_с_ярко_сиреневыми_узор-0.jpg) no-repeat fixed;
-    background-size: cover;
-    background-position: center;
+    background: #11004e;
     font-size: 24px;
     color:bisque;
     align-items: center;
@@ -16,7 +14,7 @@ body {
     padding: 0;
 }
 #game_space {
-    display: none;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     height:  100%;

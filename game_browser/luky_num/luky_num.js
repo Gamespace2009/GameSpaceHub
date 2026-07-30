@@ -1,15 +1,15 @@
 var rules = document.getElementById("rules")
 var game_space = document.getElementById("game_space")
-var random_num;
-var attempts;
+var random_num = Math.floor(Math.random() * 100) + 1;
+var attempts = 0;
 var input = document.getElementById("theory")
 var theory;
 var answer = document.getElementById("answer")
+
 function start(el) {
     el.style.display = "none"
     game_space.style.display = "flex"
-    random_num = Math.floor(Math.random() * 100) + 1;
-    attempts = 0;
+    
 }
 function test(el) {
     theory =  Number(input.value);
