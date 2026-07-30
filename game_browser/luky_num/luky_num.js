@@ -24,7 +24,6 @@ function test(el) {
     }
     else if (input.value === "" || isNaN(theory)) {
         answer.textContent = "введите корректное число";
-        return; 
     }
     else {
         answer.textContent = "вы угадали  загаданное число";
