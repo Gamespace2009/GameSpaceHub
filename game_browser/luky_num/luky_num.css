@@ -22,10 +22,10 @@ body {
     max-height: 50px;
     width: 100%;
     max-width: 350px;
-    gap: 25px;
+    gap: 20px;
 
 }
-#pusk:hover {
+#pusk:hover:focus {
     border: 3px solid red;
 }
 #game_space > * {
