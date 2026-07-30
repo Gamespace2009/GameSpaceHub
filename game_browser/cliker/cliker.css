@@ -39,7 +39,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background: none;
-    font-size: 48px;
+    font-size: 24px;
     font-weight: bold;
     pointer-events: none;
 }
@@ -49,10 +49,11 @@ body {
     #one {
         max-width: 90%;
         margin: 0 auto;
+        user-select: none;
     }
 
     #meteor {
-        max-width: 100%;
+        max-width: 100% !important;
     }
 
     #score {
