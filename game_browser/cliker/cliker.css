@@ -54,9 +54,11 @@ body {
 
     #meteor {
         max-width: 100% !important;
+        user-select: none;
     }
 
     #score {
         font-size: 32px;
+        user-select: none;
     }
 }
