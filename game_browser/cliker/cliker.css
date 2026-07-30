@@ -49,16 +49,13 @@ body {
     #one {
         max-width: 90%;
         margin: 0 auto;
-        user-select: none;
     }
 
     #meteor {
         max-width: 100% !important;
-        user-select: none;
     }
 
     #score {
         font-size: 32px;
-        user-select: none;
     }
 }
