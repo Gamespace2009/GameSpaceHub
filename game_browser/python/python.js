@@ -23,7 +23,7 @@ function python() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         
-        ctx.fillStyle = "#c93900";
+        ctx.fillStyle = "#ffebe3";
         ctx.fillRect(applex, appley, 20, 20);
 
         
@@ -54,7 +54,7 @@ function python() {
         }
 
         
-        ctx.fillStyle = '#2ecc0698';
+        ctx.fillStyle = '#145c02';
         for (var i = 0; i < snake.length; i++) {
             ctx.fillRect(snake[i].x, snake[i].y, 20, 20);
         }
@@ -148,4 +148,11 @@ function restart() {
         upgr = setInterval(upgrate, 5000);
         }
     else window.location.href = "../../game_home1.html"
+}
+function side(el) {
+    direct = el.id
+}
+function toggleButtons() {
+    const c = document.getElementById('contein');
+    c.style.display = c.style.display === 'none' ? 'flex' : 'none';
 }

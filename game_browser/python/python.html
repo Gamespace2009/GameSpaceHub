@@ -8,9 +8,21 @@
     <link rel="stylesheet" href="python.css">
 </head>
 <body>
-    <canvas id="snake" width="500" height="500"></canvas>s
+    <canvas id="snake" width="500" height="500"></canvas>
     <h3 id="score">0</h3>
     <button id="start" onclick="start(this)">Старт</button>
+    <button onclick="toggleButtons()" id="toggleBtn">Кнопки</button>
+    
+     <div id="contein">
+        <button id="up" onclick="side(this)">▲</button>
+        <div>
+            <button id="left" onclick="side(this)">◄</button>
+            <button id="down" onclick="side(this)">▼</button>
+            <button id="right" onclick="side(this)">►</button>
+        </div>
+    </div>
+
     <script src="python.js"></script>
+    
 </body>
 </html>
