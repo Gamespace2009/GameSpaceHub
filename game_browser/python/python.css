@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Gabriela&family=Nabla&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -111,4 +112,119 @@ body {
         width: 90%;
         max-width: 200px;
     }
+=======
+@import url('https://fonts.googleapis.com/css2?family=Gabriela&family=Nabla&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: #0A061F;
+    margin: 0;
+    padding: 10px;
+    font-family: "Gabriela", serif;
+    overflow: hidden;
+    height: 100vh;
+    touch-action: none;
+}
+
+#score {
+    font-family: "Gabriela", serif;
+    color: #00D4FF;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px #00D4FF;
+}
+
+
+
+#snake {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    height: auto;
+    max-height: 500px;
+    background: #0A061F;
+    cursor: pointer;
+    border: 2px solid #300D75;
+}
+
+#start {
+    font-family: "Gabriela", serif;
+    font-size: 22px;
+    padding: 12px 40px;
+    margin-top: 15px;
+    background: #120C40;
+    color: #00D4FF;
+    border: 2px solid #300D75;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#start:hover {
+    background: #300D75;
+    color: #fff;
+    box-shadow: 0 0 30px #9B59B6;
+}
+
+#start:active {
+    transform: scale(0.95);
+}
+
+/* ===== АДАПТАЦИЯ ПОД ТЕЛЕФОН ===== */
+@media (max-width: 768px) {
+    body {
+        justify-content: flex-start;
+        padding-top: 20px;
+        height: 100vh;
+    }
+
+    #pole {
+        max-width: 95vw;
+        max-height: 95vw;
+        height: auto;
+    }
+
+    #score {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+
+    #start {
+        font-size: 18px;
+        padding: 10px 30px;
+        width: 80%;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    #pole {
+        max-width: 98vw;
+    }
+
+    #score {
+        font-size: 18px;
+    }
+
+    #start {
+        font-size: 16px;
+        padding: 8px 20px;
+        width: 90%;
+        max-width: 200px;
+    }
+>>>>>>> b1c284bf39671c1dec9a05ae5f3e785b8e071df0
 }
