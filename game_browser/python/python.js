@@ -23,8 +23,7 @@ function python() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         
-        ctx.fillStyle = "#ffebe3";
-        ctx.fillRect(applex, appley, 20, 20);
+        
 
         
         var x2 = snake[snake.length - 1].x;
@@ -60,6 +59,9 @@ function python() {
         }
         ctx.fillStyle = '#4fbe4b'; // или любой другой цвет
         ctx.fillRect(snake[0].x, snake[0].y, 20, 20);
+
+        ctx.fillStyle = "#ffebe3";
+        ctx.fillRect(applex, appley, 20, 20);
 
 
         // === ГРАНИЦА СЖАТИЯ ===
