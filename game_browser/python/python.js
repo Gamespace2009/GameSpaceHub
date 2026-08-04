@@ -1,3 +1,17 @@
+(function() {
+    // Блокировка F12
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || e.keyCode === 123 || 
+            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J'))) {
+            e.preventDefault();
+            alert('🔒 Инструменты разработчика отключены!');
+            return false;
+        }
+    });
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+    });
 var canvas = document.getElementById("snake");
 var score = document.getElementById("score");
 var ctx = canvas.getContext('2d');
@@ -81,7 +95,7 @@ function python() {
         if (snake[0].x >= canvas.width || snake[0].y >= canvas.height || 
             snake[0].x < 0 || snake[0].y < 0) {
             clearInterval(game);
-            restart()
+            // restart()
         }
     }, 150);
 }
@@ -158,3 +172,10 @@ function toggleButtons() {
     const c = document.getElementById('contein');
     c.style.display = c.style.display === 'none' ? 'flex' : 'none';
 }
+
+window.start = start;
+window.side = side;
+window.restart = restart;
+window.toggleButtons = toggleButtons;
+
+})(); 
