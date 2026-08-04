@@ -70,25 +70,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* ===== КНОПКА РЕСТАРТ ===== */
-#restart {
-    padding: 10px 35px;
-    background: #120C40;
-    color: #00D4FF;
-    border: 2px solid #300D75;
-    border-radius: 30px;
-    cursor: pointer;
-    font-family: 'Gabriela', serif;
-    font-size: 18px;
-    transition: 0.3s;
-    margin-top: 5px;
-}
 
-#restart:hover {
-    background: #300D75;
-    color: #fff;
-    box-shadow: 0 0 30px #9B59B6;
-}
 
 /* ===== ТЕЛЕФОН ===== */
 @media (max-width: 500px) {
@@ -102,10 +84,5 @@ body {
         font-size: 18px;
         padding: 8px 20px;
         min-width: 140px;
-    }
-
-    #restart {
-        font-size: 16px;
-        padding: 8px 25px;
     }
 }
