@@ -45,7 +45,7 @@ function hod(el){
             grid_cl[i].style.pointerEvents = "none"
         }
         des_hd.textContent = "Победили нолики";
-        var timer = setTimeout(function(){res = confirm("Вы хотите начать сначала?"); restart()}, 3000);
+        var timer = setTimeout(function(){res = confirm("Вы хотите начать сначала?"); restart()}, 1500);
     }
     else if (((one.dataset.value== "1" && two.dataset.value== "1" && free.dataset.value== "1" ) || (four.dataset.value== "1" && five.dataset.value== "1" && six.dataset.value== "1" )|| (seven.dataset.value== "1" && eich.dataset.value== "1" && nine.dataset.value== "1" )) ||
     ((one.dataset.value== "1" && four.dataset.value== "1" && seven.dataset.value== "1" ) || (two.dataset.value== "1" && five.dataset.value== "1" && eich.dataset.value== "1" )|| (free.dataset.value== "1" && six.dataset.value== "1" && nine.dataset.value== "1" )) ||
@@ -54,14 +54,14 @@ function hod(el){
             grid_cl[i].style.pointerEvents = "none"
         }
         des_hd.textContent = "Победили крестики";
-        var timer = setTimeout(function(){res = confirm("Вы хотите начать сначала?"); restart()}, 3000);
+        var timer = setTimeout(function(){res = confirm("Вы хотите начать сначала?"); restart()}, 1500);
     }
     else if (score == 9) {
         for (var i = 0; i<grid_cl.length; i++) {
             grid_cl[i].style.pointerEvents = "none"
         }
         des_hd.textContent = "победила дружба";
-        var timer = setTimeout(function(){res = confirm("Вы хотите начать сначала?"); restart()}, 3000);
+        var timer = setTimeout(function(){res = confirm("Вы хотите начать сначала?"); restart()}, 1500);
     } 
 }
 

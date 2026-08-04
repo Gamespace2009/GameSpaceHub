@@ -41,8 +41,6 @@ body {
 }
 
 #grid > * {
-    /* background: url('img/пустая клетка.png') no-repeat center;
-    background-size: contain; */
     width: 100%;
     aspect-ratio: 1 / 1;
     border: 2px solid #300D75;
