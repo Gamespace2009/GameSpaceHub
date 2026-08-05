@@ -15,7 +15,8 @@ function test(el) {
     theory =  Number(input.value);
     attempts += 1;
     console.log(theory);
-    
+    let raw = input.value.trim().replace(',', '.');
+    console.log(raw)
     if (theory < random_num) {
         answer.textContent = "нужно число по больше";
     }
