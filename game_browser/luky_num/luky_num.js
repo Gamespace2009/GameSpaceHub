@@ -14,12 +14,9 @@ function start(el) {
 function test(el) {
     theorystr = input.value
     theory =  Number(theorystr);
-    
     attempts += 1;
-    console.log(theory);
     var raw = theorystr.trim().replace(',', '.');
     var str = raw.split(".")
-    console.log(str)
     if (input.value === "" || isNaN(Number(raw)) || str.length > 1) {
         answer.textContent = "введите корректное число";
         return;}
