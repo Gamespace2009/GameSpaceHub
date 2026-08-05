@@ -1,49 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabriela&display=swap');
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+
 body {
     display: flex;
-    background: #11004e;
-    font-size: 24px;
-    color:bisque;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    background: #0A061F;
+    font-family: 'Gabriela', serif;
+    color: #00D4FF;
+    padding: 20px;
     margin: 0;
-    padding: 0;
 }
+
+/* ===== ИГРОВОЕ ПОЛЕ ===== */
 #game_space {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: 100%;
-    min-height:  50px;
-    max-height: 50px;
-    width: 100%;
-    max-width: 350px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px 20px;
+    background: rgba(10, 6, 31, 0.8);
+    border: 2px solid #300D75;
+    border-radius: 24px;
+    box-shadow: 0 0 60px rgba(48, 13, 117, 0.3);
+    backdrop-filter: blur(4px);
+}
 
-}
-#pusk:hover, #pusk:focus {
-    border: 3px solid red;
-}
+/* ===== КНОПКИ / ЭЛЕМЕНТЫ ===== */
 #game_space > * {
-    height: 100%;
-    max-height: 50px;
+    width: 100%;
+    max-width: 300px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== КНОПКА СТАРТ ===== */
+#pusk {
+    padding: 12px 30px;
+    background: #120C40;
+    color: #00D4FF;
+    border: 2px solid #300D75;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Gabriela', serif;
+    font-size: 20px;
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+#pusk:hover,
+#pusk:focus {
+    border-color: #9B59B6;
+    background: #300D75;
+    color: #fff;
+    box-shadow: 0 0 30px rgba(155, 89, 182, 0.4);
+    outline: none;
+}
+
+#pusk:active {
+    transform: scale(0.95);
 }
 
 
+
+/* ===== ПОЛЕ ВВОДА (если есть) ===== */
+input {
+    padding: 10px 20px;
+    background: #0A061F;
+    color: #00D4FF;
+    border: 2px solid #300D75;
+    border-radius: 30px;
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Gabriela', serif;
+    outline: none;
+    transition: 0.3s;
+    width: 100%;
+    max-width: 250px;
+}
+
+input:focus {
+    border-color: #9B59B6;
+    box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+}
+
+/* ===== АДАПТАЦИЯ ПОД ТЕЛЕФОН ===== */
 @media (max-width: 600px) {
-    #game_space {
-        max-width: 100%;
+    body {
         padding: 10px;
-        gap: 3px;
     }
 
+    #game_space {
+        padding: 20px 15px;
+        gap: 15px;
+        border-radius: 16px;
+    }
 
-    body {
+    #pusk {
         font-size: 18px;
-        padding: 10px;
+        padding: 10px 25px;
+        height: 48px;
+    }
+
+    #rules {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    input {
+        font-size: 16px;
+        padding: 8px 16px;
     }
 }
