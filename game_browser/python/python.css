@@ -23,6 +23,7 @@ body {
 }
 
 #score {
+    display: none;
     font-family: "Gabriela", serif;
     color: #00D4FF;
     font-size: 28px;
@@ -32,6 +33,7 @@ body {
 }
 
 #snake {
+    display: none;
     width: 100%;
     max-width: 500px;
     aspect-ratio: 1 / 1;
@@ -64,6 +66,99 @@ body {
 
 #start:active {
     transform: scale(0.95);
+}
+
+/* ===== МОДУЛЬ СКОРОСТИ ===== */
+#speed {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#speed button {
+    font-family: "Gabriela", serif;
+    font-size: 16px;
+    padding: 6px 16px;
+    background: #120C40;
+    color: #00D4FF;
+    border: 2px solid #300D75;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#speed button:hover {
+    background: #300D75;
+    color: #fff;
+    box-shadow: 0 0 20px #9B59B6;
+}
+
+#speed button:active {
+    transform: scale(0.95);
+}
+
+#speed button.active {
+    background: #300D75;
+    color: #fff;
+    border-color: #9B59B6;
+    box-shadow: 0 0 20px rgba(155, 89, 182, 0.4);
+}
+
+/* ===== НАСТРОЙКИ (общий блок) ===== */
+#setting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#toggleBtn {
+    font-family: "Gabriela", serif;
+    font-size: 16px;
+    padding: 8px 20px;
+    margin-top: 10px;
+    background: #120C40;
+    color: #00D4FF;
+    border: 2px solid #300D75;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#toggleBtn:hover {
+    background: #300D75;
+    color: #fff;
+    box-shadow: 0 0 20px #9B59B6;
+}
+
+#toggleBtn:active {
+    transform: scale(0.95);
+}
+
+#setting img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.2s;
+    opacity: 0.7;
+}
+
+#setting img:hover {
+    opacity: 1;
+    transform: rotate(45deg);
+}
+
+#setting img:active {
+    transform: scale(0.9);
 }
 
 /* ===== КНОПКИ УПРАВЛЕНИЯ (ВНИЗУ) ===== */
@@ -113,68 +208,7 @@ body {
     color: #fff;
 }
 
-#setting {
-    width: 30px;
-    height: 30px;
-    margin-left: 30px;
-    cursor: pointer;
-    transition: 0.2s;
-    opacity: 0.7;
-}
-
-#setting:hover {
-    opacity: 1;
-    transform: rotate(45deg);
-}
-
-#setting:active {
-    transform: scale(0.9);
-}
-
 /* ===== АДАПТАЦИЯ ПОД ТЕЛЕФОН ===== */
-/* ===== КНОПКА ПОКАЗА/СКРЫТИЯ (ПК + ТЕЛЕФОН) ===== */
-#toggleBtn {
-    font-family: "Gabriela", serif;
-    font-size: 16px;
-    padding: 8px 20px;
-    margin-top: 10px;
-    background: #120C40;
-    color: #00D4FF;
-    border: 2px solid #300D75;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-    touch-action: manipulation;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-}
-
-#toggleBtn:hover {
-    background: #300D75;
-    color: #fff;
-    box-shadow: 0 0 20px #9B59B6;
-}
-
-#toggleBtn:active {
-    transform: scale(0.95);
-}
-
-/* ===== ТЕЛЕФОН: кнопка переключения поменьше ===== */
-@media (max-width: 768px) {
-    #toggleBtn {
-        font-size: 14px;
-        padding: 6px 16px;
-        margin-top: 8px;
-    }
-}
-
-@media (max-width: 480px) {
-    #toggleBtn {
-        font-size: 12px;
-        padding: 5px 12px;
-        margin-top: 6px;
-    }
-}
 @media (max-width: 768px) {
     body {
         justify-content: flex-start;
@@ -197,6 +231,17 @@ body {
         padding: 10px 30px;
         width: 80%;
         max-width: 250px;
+    }
+
+    #toggleBtn {
+        font-size: 14px;
+        padding: 6px 16px;
+        margin-top: 8px;
+    }
+
+    #speed button {
+        font-size: 14px;
+        padding: 5px 12px;
     }
 
     #contein button {
@@ -230,6 +275,17 @@ body {
         padding: 8px 20px;
         width: 90%;
         max-width: 200px;
+    }
+
+    #toggleBtn {
+        font-size: 12px;
+        padding: 5px 12px;
+        margin-top: 6px;
+    }
+
+    #speed button {
+        font-size: 12px;
+        padding: 4px 10px;
     }
 
     #contein button {

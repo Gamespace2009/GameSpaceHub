@@ -1,4 +1,3 @@
-
 var canvas = document.getElementById("snake");
 var score = document.getElementById("score");
 var ctx = canvas.getContext('2d');
@@ -10,81 +9,89 @@ var snake = [{x: 100, y: 100}];
 var direct = "right";
 var touchStart = {x: 0, y: 0};
 var upgr;
-
+var sp = "x1";
+var sp2 = 5000;
+var sp3 = 150;
+var lastTime = 0;
 function start(el) {
+     // Скрываем настройки
+    document.getElementById('setting').style.display = 'none';
+
+    // Показываем canvas и счёт
+    canvas.style.display = 'block';
+    canvas.classList.add('active');
+    score.style.display = 'block';
+    score.classList.add('active');
     ctx.fillStyle = '#1a1a2e';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     python();
-    el.style.pointerEvents = 'none';
-    upgr = setInterval(upgrate, 5000);
+    console.log(sp)
+    upgr = setInterval(upgrate, sp2);
 }
 
+
+
 function python() {
-    game = setInterval(function() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function loop(timestamp) {
+        if (timestamp - lastTime >= sp3) {
+            lastTime = timestamp;
 
-        
-        
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            var x2 = snake[snake.length - 1].x;
+            var y2 = snake[snake.length - 1].y;
 
-        
-        var x2 = snake[snake.length - 1].x;
-        var y2 = snake[snake.length - 1].y;
+            for (var i = snake.length - 1; i > 0; i--) {
+                snake[i].x = snake[i - 1].x;
+                snake[i].y = snake[i - 1].y;
+            }
 
-        
-        for (var i = snake.length - 1; i > 0; i--) {
-            snake[i].x = snake[i - 1].x;
-            snake[i].y = snake[i - 1].y;
+            switch (direct) {
+                case "right": snake[0].x += 20; break;
+                case "left":  snake[0].x -= 20; break;
+                case "up":    snake[0].y -= 20; break;
+                case "down":  snake[0].y += 20; break;
+            }
+
+            if (snake[0].x === applex && snake[0].y === appley) {
+                snake.push({x: x2, y: y2});
+                foods();
+                score.textContent = snake.length - 1;
+                clearInterval(upgr);
+                upgr = setInterval(upgrate, 6500);
+            }
+
+            ctx.fillStyle = '#145c02';
+            for (var i = 0; i < snake.length; i++) {
+                ctx.fillRect(snake[i].x, snake[i].y, 20, 20);
+            }
+            ctx.fillStyle = '#4fbe4b';
+            ctx.fillRect(snake[0].x, snake[0].y, 20, 20);
+
+            ctx.fillStyle = "#ffebe3";
+            ctx.fillRect(applex, appley, 20, 20);
+
+            ctx.strokeStyle = '#5205aa';
+            ctx.lineWidth = 4;
+            ctx.strokeRect(shrink, shrink, canvas.width - shrink * 2, canvas.height - shrink * 2);
+
+            if (snake[0].x < shrink || snake[0].x > canvas.width - shrink - 20 ||
+                snake[0].y < shrink || snake[0].y > canvas.height - shrink - 20) {
+                cancelAnimationFrame(game);
+                restart();
+                return;
+            }
+
+            if (snake[0].x >= canvas.width || snake[0].y >= canvas.height || 
+                snake[0].x < 0 || snake[0].y < 0) {
+                cancelAnimationFrame(game);
+                restart();
+                return;
+            }
         }
 
-        
-        switch (direct) {
-            case "right": snake[0].x += 20; break;
-            case "left":  snake[0].x -= 20; break;
-            case "up":    snake[0].y -= 20; break;
-            case "down":  snake[0].y += 20; break;
-        }
-
-        
-        if (snake[0].x === applex && snake[0].y === appley) {
-            snake.push({x: x2, y: y2});
-            foods();
-            score.textContent = snake.length - 1;
-            clearInterval(upgr);
-            upgr = setInterval(upgrate, 6500);
-        }
-
-        
-        ctx.fillStyle = '#145c02';
-        for (var i = 0; i < snake.length; i++) {
-            ctx.fillRect(snake[i].x, snake[i].y, 20, 20);
-        }
-        ctx.fillStyle = '#4fbe4b'; // или любой другой цвет
-        ctx.fillRect(snake[0].x, snake[0].y, 20, 20);
-
-        ctx.fillStyle = "#ffebe3";
-        ctx.fillRect(applex, appley, 20, 20);
-
-
-        // === ГРАНИЦА СЖАТИЯ ===
-        ctx.strokeStyle = '#5205aa';
-        ctx.lineWidth = 4;
-        ctx.strokeRect(shrink, shrink, canvas.width - shrink * 2, canvas.height - shrink * 2);
-
-        // === ПРОВЕРКА ВЫХОДА ЗА ГРАНИЦУ ===
-        if (snake[0].x < shrink || snake[0].x > canvas.width - shrink - 20 ||
-            snake[0].y < shrink || snake[0].y > canvas.height - shrink - 20) {
-            clearInterval(game);
-            
-            restart()
-        }
-
-        
-        if (snake[0].x >= canvas.width || snake[0].y >= canvas.height || 
-            snake[0].x < 0 || snake[0].y < 0) {
-            clearInterval(game);
-            // restart()
-        }
-    }, 150);
+        game = requestAnimationFrame(loop);
+    }
+    loop(0);
 }
 
 function foods() {
@@ -128,18 +135,25 @@ function upgrate() {
     shrink += 40;
     foods()
     if (shrink >= canvas.width / 2) {
-        clearInterval(game);
+        cancelAnimationFrame(game)
         alert('Поле сжалось! Game Over!');
     }
 
     clearInterval(upgr);
-    upgr = setInterval(upgrate, 5000);
+    upgr = setInterval(upgrate, sp2);
 }
 function restart() {
     let res = confirm("вы проиграли! Хотите начать заново?")
     if (res) {
-        clearInterval(game);
+        cancelAnimationFrame(game)
         clearInterval(upgr);
+        document.getElementById('setting').style.display = 'flex';
+    // Показываем canvas и счёт
+        canvas.style.display = 'none';
+        canvas.classList.remove('active');
+        score.style.display = 'none';
+        score.classList.remove('active');
+        
         snake = [{x: 100, y: 100}];
         direct = "right";
         shrink = 0;
@@ -147,8 +161,6 @@ function restart() {
         applex = Math.floor(Math.random() * (canvas.width / 20)) * 20;
         appley = Math.floor(Math.random() * (canvas.height / 20)) * 20;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        python();
-        upgr = setInterval(upgrate, 5000);
         }
     else window.location.href = "../../game_home1.html"
 }
@@ -160,4 +172,13 @@ function toggleButtons() {
     c.style.display = c.style.display === 'none' ? 'flex' : 'none';
 }
 
-
+function speed(el){
+    sp = el.id;
+    switch (sp) {
+        case "x1": sp2 = 5000/1; sp3 = 150/1; break;
+        case "x2": sp2 = 5000/1.2; sp3 = 150/1.2; break;
+        case "x3": sp2 = 5000/1.5; sp3 = 150/1.5; break;
+        case "x4": sp2 = 5000/1.7; sp3 = 150/1.7; break;
+        case "x5": sp2 = 5000/2; sp3 = 150/2; break;
+    }
+}

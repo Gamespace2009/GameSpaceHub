@@ -8,12 +8,23 @@
     <link rel="stylesheet" href="python.css">
 </head>
 <body>
-    <button onclick="toggleButtons()" id="toggleBtn">Кнопки</button>
+
+    <div id="setting">
+        <div id="speed">
+            <button id="x1" onclick="speed(this)">X1</button>
+            <button id="x2" onclick="speed(this)">X2</button>
+            <button id="x3" onclick="speed(this)">X3</button>
+            <button id="x4" onclick="speed(this)">X4</button>
+            <button id="x5" onclick="speed(this)">X5</button>
+        </div>
+        <button onclick="toggleButtons()" id="toggleBtn">Кнопки</button>
+        <button id="start" onclick="start(this)">Старт</button>
+    </div>
+
+
+    
     <canvas id="snake" width="500" height="500"></canvas>
     <h3 id="score">0</h3>
-    <button id="start" onclick="start(this)">Старт</button>
-    
-
      <div id="contein">
         <button id="up" onclick="side(this)">▲</button>
         <div>
