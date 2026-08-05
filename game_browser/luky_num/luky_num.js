@@ -12,20 +12,24 @@ function start(el) {
     
 }
 function test(el) {
-    theory =  Number(input.value);
+    theorystr = input.value
+    theory =  Number(theorystr);
+    
     attempts += 1;
     console.log(theory);
-    let raw = input.value.trim().replace(',', '.');
-    console.log(raw)
-    if (theory < random_num) {
+    var raw = theorystr.trim().replace(',', '.');
+    var str = raw.split(".")
+    console.log(str)
+    if (input.value === "" || isNaN(Number(raw)) || str.length > 1) {
+        answer.textContent = "введите корректное число";
+        return;}
+    else if  (theory < random_num) {
         answer.textContent = "нужно число по больше";
     }
     else if (theory > random_num)  {
         answer.textContent = "нужно число по меньше";
     }
-    else if (input.value === "" || isNaN(theory)) {
-        answer.textContent = "введите корректное число";
-    }
+    
     else {
         answer.textContent = "вы угадали  загаданное число";
         let timer = setTimeout(function(){
