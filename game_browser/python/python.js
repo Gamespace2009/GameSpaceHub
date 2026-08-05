@@ -25,7 +25,6 @@ function start(el) {
     ctx.fillStyle = '#1a1a2e';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     python();
-    console.log(sp)
     upgr = setInterval(upgrate, sp2);
 }
 
