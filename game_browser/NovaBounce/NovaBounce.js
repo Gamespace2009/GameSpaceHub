@@ -4,9 +4,29 @@ var plat = {x: 230, y: 400};
 var block = [];
 var ball = { x: 250, y: 380, r: 8, dx: 3, dy: -4 };
 var games;
-var mouseDown = false;
+
 var score = 0;
 var starter;
+
+function movePaddle(e) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const mouseX = (e.clientX - rect.left) * scaleX;
+    plat.x = Math.max(0, Math.min(canvas.width - 30, mouseX - 15));
+}
+
+function movePaddleTouch(e) {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const touchX = (touch.clientX - rect.left) * scaleX;
+    plat.x = Math.max(0, Math.min(canvas.width - 30, touchX - 15));
+}
+
+// Подключаем события
+canvas.addEventListener('mousemove', movePaddle);
+canvas.addEventListener('touchmove', movePaddleTouch);
 function start(el) {
     canvas.style.display = "block"
     for (var row = 0; row < 7; row++) {
@@ -90,16 +110,7 @@ function game() {
 
     
 }
-canvas.addEventListener('mousemove', function(e) {
-    if (!mouseDown) return;
 
-    var rect = canvas.getBoundingClientRect();
-    var scaleX = canvas.width / rect.width;
-    var mouseX = (e.clientX - rect.left) * scaleX;
-    plat.x = mouseX - 15;
-    if (plat.x < 0) plat.x = 0;
-    if (plat.x + 30 > canvas.width) plat.x = canvas.width - 30;
-});
 canvas.addEventListener('mousedown', function(e) {
     if (e.button === 0) { 
         mouseDown = true;
