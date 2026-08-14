@@ -112,9 +112,7 @@ canvas.addEventListener('mouseup', function(e) {
     }
 });
 
-canvas.addEventListener('mouseleave', function() {
-    mouseDown = false; 
-});
+
 
 function restart() {
     clearInterval(games);
