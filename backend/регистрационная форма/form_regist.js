@@ -19,7 +19,9 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
     const username = document.getElementById('loginUsername').value;
     const password = document.getElementById('loginPassword').value;
-
+//=========================================================================================
+    error() //=============включать только если сервер временно не работает================
+//=========================================================================================
     const response = await fetch('http://192.168.0.14:3000/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -48,7 +50,9 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     const password = document.getElementById('regPassword').value;
     const email = document.getElementById('regEmail').value;
     const birthDate = document.getElementById('regBirthDate').value;
-
+    //=========================================================================================
+    error() //=============включать только если сервер временно не работает================
+    //=========================================================================================
     const response = await fetch('http://192.168.0.14:3000/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -80,3 +84,8 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         alert('❌ ' + data.message);
     }
 });
+
+function error(){
+    alert("сервер временно не работает")
+    window.location.href = '../../index.html';
+}
