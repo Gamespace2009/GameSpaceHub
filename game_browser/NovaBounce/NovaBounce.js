@@ -39,7 +39,7 @@ function start(el) {
     console.log(block)
     starter = el
     el.style.display = "none"
-    games = setInterval(game, 30);
+    games = setInterval(game, 20);
 }
 function game() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);

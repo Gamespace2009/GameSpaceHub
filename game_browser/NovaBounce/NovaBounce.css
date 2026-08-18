@@ -70,6 +70,7 @@ body {
     aspect-ratio: 1 / 1;
     display: none; /* скрыт по умолчанию */
     touch-action: none;
+    cursor: none;
 }
 
 
