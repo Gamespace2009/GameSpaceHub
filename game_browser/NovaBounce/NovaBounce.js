@@ -4,17 +4,14 @@ var plat = {x: 230, y: 400};
 var block = [];
 var ball = { x: 250, y: 380, r: 8, dx: 3, dy: -4 };
 var games;
-
 var score = 0;
 var starter;
-
 function movePaddle(e) {
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
     const mouseX = (e.clientX - rect.left) * scaleX;
     plat.x = Math.max(0, Math.min(canvas.width - 30, mouseX - 15));
 }
-
 function movePaddleTouch(e) {
     e.preventDefault();
     const touch = e.touches[0];
@@ -23,7 +20,6 @@ function movePaddleTouch(e) {
     const touchX = (touch.clientX - rect.left) * scaleX;
     plat.x = Math.max(0, Math.min(canvas.width - 30, touchX - 15));
 }
-
 // Подключаем события
 canvas.addEventListener('mousemove', movePaddle);
 canvas.addEventListener('touchmove', movePaddleTouch);
@@ -45,16 +41,11 @@ function start(el) {
     el.style.display = "none"
     games = setInterval(game, 30);
 }
-
 function game() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-
     ctx.fillStyle = "#00b4e0";
     ctx.fillRect(plat.x, plat.y, 60, 15);
-
-
-    ctx.fillStyle = "#442c00";
+    ctx.fillStyle = "#b9b9b7";
     for (var i = 0; i < block.length; i++) {
         if (block[i].alive) {
             ctx.fillRect(block[i].x, block[i].y, block[i].w, block[i].h);
