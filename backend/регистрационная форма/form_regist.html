@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameSpaceHub — Вход</title>
+    <link rel="stylesheet" href="form_regist.css">
+</head>
+<body>
+
+<div class="auth-container">
+
+    <!-- Переключатель режимов -->
+    <div class="auth-tabs">
+        <button class="tab active" data-mode="login">🔐 Вход</button>
+        <button class="tab" data-mode="register">🚀 Регистрация</button>
+    </div>
+
+    <!-- ФОРМА ВХОДА -->
+    <form id="loginForm" class="auth-form active">
+        <input type="text" id="loginUsername" placeholder="Имя" autocomplete="username" required>
+        <input type="password" id="loginPassword" placeholder="Пароль"  autocomplete="current-password" required>
+        <button type="submit">Войти</button>
+        <p>Нет аккаунта? <span class="switch-link" data-target="register">Зарегистрируйся</span></p>
+    </form>
+
+    <!-- ФОРМА РЕГИСТРАЦИИ -->
+    <form id="registerForm" class="auth-form">
+        <input type="text" id="regUsername" placeholder="Имя" autocomplete="username" required>
+        <input type="password" id="regPassword" placeholder="Пароль" autocomplete="current-password" required>
+        <input type="email" id="regEmail" placeholder="Email">
+        <input type="date" id="regBirthDate" required>
+        <button type="submit">Зарегистрироваться</button>
+        <p>Уже есть аккаунт? <span class="switch-link" data-target="login">Войти</span></p>
+    </form>
+
+</div>
+
+<script src="form_regist.js"></script>
+</body>
+</html>
