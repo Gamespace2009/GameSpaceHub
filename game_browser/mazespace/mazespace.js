@@ -145,20 +145,28 @@ function skipTurn() {
 
 
 function resetGame() {
-    let res;
-    if (n > 0){
-        res = confirm('Поздравляем с победой 🎉 Хотите попробовать снова?')
-        if (!res) window.location.href = "../../game_home1.html"
+    if (n > 0) {
+        let res = confirm('Поздравляем с победой 🎉 Хотите попробовать снова?');
+        if (!res) {
+            window.location.href = "../../game_home1.html";
+            return;
+        }
     }
+
     maze = generateMaze(ROWS, COLS);
     player = { x: 1, y: 1 };
     gameOver = false;
     currentDirection = null;
     allowedSides = [];
     isMoving = false;
-    rollDirection()
+    n = 0;
+    stepsLeft = 0;
+    moveDirection = null;
+
+    rer(1);
     enableAllButtons(true);
     draw();
+    setStatus('🎲 Нажми «Направление» для начала');
 }
 function rer(sit){
     if ( sit == 0){
@@ -234,7 +242,7 @@ function chooseSide(side) {
             setStatus(`🎉 Ты нашёл выход! Поздравляю!<br> потребавалось попыток: ${n}`);
             enableAllButtons(false);
             draw();
-            rer(2)
+            resetGame();
             return;
         }
     }, 120);
