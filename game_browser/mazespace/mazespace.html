@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MazeSpace</title>
+    <link rel="stylesheet" href="mazespace.css">
+    <link rel="icon" href="/GameSpaceHub/favicon.ico">
+</head>
+<body>
+    <div id="game">
+        <h1>🌀 MazeSpace</h1>
+        <div id="status">🎲 Нажми на старт</div>
+        <canvas id="mazeCanvas"></canvas>
+        <div id="controls">
+            <button id="rollBtn">🎲 Направление</button>
+            <button id="skipBtn">⏭ Реран</button>
+            <button id="resetBtn">Старт</button>
+        </div>
+        <div class="row-buttons" id="column">
+            <button class="dir-btn" id="upBtn">▲</button>
+            <button class="dir-btn" id="downBtn">▼</button>
+        </div>
+        <div class="row-buttons" id="row">
+            <button class="dir-btn" id="leftBtn">◀</button>
+            <button class="dir-btn" id="rightBtn">▶</button>
+        </div>
+    </div>
+
+    <script src="mazespace.js"></script>
+</body>
+</html>
