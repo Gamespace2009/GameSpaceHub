@@ -47,9 +47,11 @@ body {
 
 .game_cards h4 {
     color: #00D4FF;
-    font-size: 18px;
-    margin-top: 10px;
+    font-size: 15px;
     text-align: center;
+    word-break: break-word;
+    max-width: 90%;
+    margin: 5px auto;
 }
 
 /* ===== КОНТЕЙНЕР С КАРТОЧКАМИ ===== */
