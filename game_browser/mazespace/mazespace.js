@@ -9,17 +9,18 @@ const ROWS = 21;
 const COLS = 21;
 canvas.width = COLS * CELL;
 canvas.height = ROWS * CELL;
-let maze = [];
+
+let maze = generateMaze(ROWS, COLS);
 let player = { x: 1, y: 1 };
-let exitPos = { x: ROWS - 2, y: COLS - 2 };
 let gameOver = false;
-let currentDirection = null;       // 'horiz' или 'vert'
-let allowedSides = [];
+let currentDirection = null;
 let isMoving = false;
 let n = 0;
 let stepsLeft = 0;
 let moveDirection = null;
-rer(2);
+let moveInterval = null;
+let allowedSides = [];
+
 // ============================================================
 // 2. ГЕНЕРАЦИЯ ЛАБИРИНТА
 // ============================================================
@@ -110,12 +111,14 @@ function isExit(x, y) {
 }
 
 function enableAllButtons(enabled) {
-    document.querySelectorAll('button').forEach(b => b.disabled = !enabled);
+    const buttons = document.querySelectorAll('button:not(#resetBtn)');
+    buttons.forEach(b => b.disabled = !enabled);
 }
 
 function setStatus(text) {
     statusEl.innerHTML = text;
 }
+
 function rollDirection() {
     rer(0);
     if (gameOver || isMoving) return;
@@ -123,100 +126,83 @@ function rollDirection() {
     currentDirection = isHoriz ? 'horiz' : 'vert';
     allowedSides = isHoriz ? ['left', 'right'] : ['up', 'down'];
     if (currentDirection == 'horiz') {
-        document.getElementById("row").style.display = "flex"
-        document.getElementById("column").style.display = "none"
-    }
-    else if (currentDirection == 'vert') {
-        document.getElementById("row").style.display = "none"
-        document.getElementById("column").style.display = "flex"
+        document.getElementById("row").style.display = "flex";
+        document.getElementById("column").style.display = "none";
+    } else if (currentDirection == 'vert') {
+        document.getElementById("row").style.display = "none";
+        document.getElementById("column").style.display = "flex";
     }
 
-    setStatus(`🎯 Выпало: ${isHoriz ? 'ГОРИЗОНТАЛЬ' : 'ВЕРТИКАЛЬ'}. Выберите реран или выберите сторону в которую сходите :)`);
+    setStatus(`🎯 Выпало: ${isHoriz ? 'ГОРИЗОНТАЛЬ' : 'ВЕРТИКАЛЬ'}. Выберите сторону или нажмите «Реран».`);
 }
-
 
 function skipTurn() {
     if (gameOver || isMoving) return;
     currentDirection = null;
     allowedSides = [];
-    setStatus('⏭ запущен реран');
-    rollDirection()
+    setStatus('⏭ Запущен реран');
+    rollDirection();
 }
 
+function rer(sit) {
+    const skipBtn = document.getElementById("skipBtn");
+    const rollBtn = document.getElementById("rollBtn");
+    const resetBtn = document.getElementById("resetBtn");
 
-function resetGame() {
-    if (n > 0) {
-        let res = confirm('Поздравляем с победой 🎉 Хотите попробовать снова?');
-        if (!res) {
-            window.location.href = "../../game_home1.html";
-            return;
-        }
-    }
-
-    maze = generateMaze(ROWS, COLS);
-    player = { x: 1, y: 1 };
-    gameOver = false;
-    currentDirection = null;
-    allowedSides = [];
-    isMoving = false;
-    n = 0;
-    stepsLeft = 0;
-    moveDirection = null;
-
-    rer(1);
-    enableAllButtons(true);
-    draw();
-    setStatus('🎲 Нажми «Направление» для начала');
-}
-function rer(sit){
-    if ( sit == 0){
-        document.getElementById("skipBtn").style.display = "flex"
-        document.getElementById("rollBtn").style.display = "none"
-        document.getElementById("resetBtn").style.display = "none"
-    }
-    if (sit == 1){
-        document.getElementById("skipBtn").style.display = "none"
-        document.getElementById("rollBtn").style.display = "flex"
-        document.getElementById("resetBtn").style.display = "none"
-    }
-    if (sit == 2){
-        document.getElementById("skipBtn").style.display = "none"
-        document.getElementById("rollBtn").style.display = "none"
-        document.getElementById("resetBtn").style.display = "flex"
+    if (sit == 0) {
+        skipBtn.style.display = "flex";
+        rollBtn.style.display = "none";
+        resetBtn.style.display = "none";
+    } else if (sit == 1) {
+        skipBtn.style.display = "none";
+        rollBtn.style.display = "flex";
+        resetBtn.style.display = "none";
+    } else if (sit == 2) {
+        skipBtn.style.display = "none";
+        rollBtn.style.display = "none";
+        resetBtn.style.display = "flex";
     }
 }
+
 function chooseSide(side) {
-    document.getElementById("column").style.display = "none"
-    document.getElementById("row").style.display = "none"
+    document.getElementById("column").style.display = "none";
+    document.getElementById("row").style.display = "none";
+
     if (gameOver || isMoving) return;
     if (!currentDirection) {
         setStatus('⚠️ Сначала нажми «Направление»!');
         return;
     }
+
     const dirMap = {
         left:  { dx: -1, dy: 0 },
         right: { dx: 1, dy: 0 },
         up:    { dx: 0, dy: -1 },
         down:  { dx: 0, dy: 1 }
     };
+
     moveDirection = dirMap[side];
-    // Проверка на стену прямо перед игроком
+
     if (isWall(player.x + moveDirection.dx, player.y + moveDirection.dy)) {
-        setStatus(`🚫 В этом направлении стена! Нажми на реран`);
+        setStatus(`🚫 В этом направлении стена! Нажми на реран.`);
         currentDirection = null;
         allowedSides = [];
         moveDirection = null;
-        return n++;
+        n++;
+        return;
     }
-    // Бросок шагов (1–6)
+
     stepsLeft = Math.floor(Math.random() * 6) + 1;
     isMoving = true;
-    n++
+    n++;
     enableAllButtons(false);
-    // Запускаем движение
-    const moveInterval = setInterval(() => {
+
+    if (moveInterval) clearInterval(moveInterval);
+
+    moveInterval = setInterval(() => {
         if (stepsLeft <= 0) {
             clearInterval(moveInterval);
+            moveInterval = null;
             finishMove();
             return;
         }
@@ -226,49 +212,62 @@ function chooseSide(side) {
 
         if (isWall(nx, ny)) {
             clearInterval(moveInterval);
+            moveInterval = null;
             setStatus(`🛑 Упёрся в стену! Остановился.`);
             finishMove();
             return;
         }
-        rer(1);
-        // Делаем шаг
+
         player.x = nx;
         player.y = ny;
         stepsLeft--;
         draw();
+
         if (isExit(player.x, player.y)) {
             clearInterval(moveInterval);
+            moveInterval = null;
             gameOver = true;
-            setStatus(`🎉 Ты нашёл выход! Поздравляю!<br> потребавалось попыток: ${n}`);
+            setStatus(`🎉 Ты нашёл выход! Поздравляю!<br>Потребовалось попыток: ${n}`);
             enableAllButtons(false);
             draw();
-            resetGame();
+            rer(2);
             return;
         }
+
+        rer(1);
     }, 120);
 }
+
 function finishMove() {
     isMoving = false;
     currentDirection = null;
     allowedSides = [];
     moveDirection = null;
     enableAllButtons(true);
+
     if (!gameOver) {
         setStatus('🎲 Нажми «Направление» для следующего хода');
+        rer(1);
     }
 }
+
+// ============================================================
+// 5. РЕСТАРТ (перезагрузка страницы)
+// ============================================================
+var k = 0;
+function resetGame() {
+    location.reload();
+}
+
 // ============================================================
 // 6. УПРАВЛЕНИЕ
 // ============================================================
-// Кнопки
-document.getElementById('rollBtn').addEventListener('click', rollDirection);
-document.getElementById('skipBtn').addEventListener('click', skipTurn);
-document.getElementById('resetBtn').addEventListener('click', resetGame);
+
 document.getElementById('upBtn').addEventListener('click', () => chooseSide('up'));
 document.getElementById('downBtn').addEventListener('click', () => chooseSide('down'));
 document.getElementById('leftBtn').addEventListener('click', () => chooseSide('left'));
 document.getElementById('rightBtn').addEventListener('click', () => chooseSide('right'));
-// Клавиатура
+
 document.addEventListener('keydown', (e) => {
     if (gameOver || isMoving) return;
     switch (e.key) {
@@ -278,3 +277,14 @@ document.addEventListener('keydown', (e) => {
         case 'ArrowRight': chooseSide('right'); break;
     }
 });
+
+// ============================================================
+// 7. СТАРТ
+// ============================================================
+rer(1);
+enableAllButtons(true);
+draw();
+setStatus('🎲 Нажми «Направление» для начала');
+
+document.getElementById("column").style.display = "none";
+document.getElementById("row").style.display = "none";
