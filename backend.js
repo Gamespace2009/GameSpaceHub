@@ -8,7 +8,7 @@ async function getProfile() {
 
         if (!token) {
             alert('Вы не авторизованы, сначала зарегистрируйтесь');
-            window.location.href = "backend/регистрационная форма/form_regist.html"
+            window.location.href = "backend/регистрационная форма/attention.html"
         }
 
         const response = await fetch('http://192.168.0.22:3000/profile', {
