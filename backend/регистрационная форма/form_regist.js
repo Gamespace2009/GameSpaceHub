@@ -20,9 +20,9 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     const username = document.getElementById('loginUsername').value;
     const password = document.getElementById('loginPassword').value;
 //=========================================================================================
-    error() //=============включать только если сервер временно не работает================
+    // error() //=============включать только если сервер временно не работает================
 //=========================================================================================
-    const response = await fetch('http://192.168.0.14:3000/login', {
+    const response = await fetch('http://192.168.0.22:3000/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -51,9 +51,9 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     const email = document.getElementById('regEmail').value;
     const birthDate = document.getElementById('regBirthDate').value;
     //=========================================================================================
-    error() //=============включать только если сервер временно не работает================
+    // error() //=============включать только если сервер временно не работает================
     //=========================================================================================
-    const response = await fetch('http://192.168.0.14:3000/register', {
+    const response = await fetch('http://192.168.0.22:3000/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password, email, birthDate })
@@ -65,7 +65,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         alert('✅ Регистрация прошла успешно!');
 
         // 🔥 АВТОВХОД ПОСЛЕ РЕГИСТРАЦИИ
-        const loginResponse = await fetch('http://192.168.0.14:3000/login', {
+        const loginResponse = await fetch('http://192.168.0.22:3000/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })

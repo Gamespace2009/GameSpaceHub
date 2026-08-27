@@ -11,7 +11,7 @@ async function getProfile() {
             window.location.href = "backend/регистрационная форма/form_regist.html"
         }
 
-        const response = await fetch('http://192.168.0.14:3000/profile', {
+        const response = await fetch('http://192.168.0.22:3000/profile', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
