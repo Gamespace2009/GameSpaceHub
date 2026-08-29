@@ -2,6 +2,7 @@ var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
 var plat = {x: 230, y: 400};
 var ball = { x: 250, y: 380, r: 8, dx: 3, dy: -4 };
+var block;
 var games;
 var score = 0;
 var starter;
