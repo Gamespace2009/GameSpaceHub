@@ -20,7 +20,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     const username = document.getElementById('loginUsername').value;
     const password = document.getElementById('loginPassword').value;
 //=========================================================================================
-    // error() //=============включать только если сервер временно не работает================
+    error() //=============включать только если сервер временно не работает================
 //=========================================================================================
     const response = await fetch('http://192.168.0.22:3000/login', {
         method: 'POST',
