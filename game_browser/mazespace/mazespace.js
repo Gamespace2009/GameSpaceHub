@@ -270,11 +270,18 @@ document.getElementById('rightBtn').addEventListener('click', () => chooseSide('
 
 document.addEventListener('keydown', (e) => {
     if (gameOver || isMoving) return;
-    switch (e.key) {
-        case 'ArrowUp': chooseSide('up'); break;
-        case 'ArrowDown': chooseSide('down'); break;
+    if (isHoriz == true) {
+        switch (e.key) {
         case 'ArrowLeft': chooseSide('left'); break;
         case 'ArrowRight': chooseSide('right'); break;
+        }
+    
+    }
+    if (isHoriz == false) {
+        switch (e.key) {
+        case 'ArrowUp': chooseSide('up'); break;
+        case 'ArrowDown': chooseSide('down'); break;
+        }
     }
 });
 
