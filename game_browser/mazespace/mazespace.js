@@ -271,10 +271,17 @@ document.getElementById('rightBtn').addEventListener('click', () => chooseSide('
 document.addEventListener('keydown', (e) => {
     if (gameOver || isMoving) return;
     switch (e.key) {
-        case 'ArrowUp': isHoriz? setStatus("сделай реран") :  chooseSide('up');break;
-        case 'ArrowDown': isHoriz? setStatus("сделай реран") : chooseSide('down'); break;
-        case 'ArrowLeft': isHoriz? chooseSide('left') : setStatus("сделай реран") ; break;
-        case 'ArrowRight': isHoriz? chooseSide('right') : setStatus("сделай реран"); break;
+        case 'ArrowUp': if(isHoriz) setStatus("сделай реран");
+            else chooseSide('up');
+            break;
+        case 'ArrowDown': if(isHoriz) setStatus("сделай реран");
+            else chooseSide('down'); break;
+        case 'ArrowLeft': if(isHoriz) chooseSide('left');
+            else setStatus("сделай реран"); 
+            break;
+        case 'ArrowRight': if(isHoriz) chooseSide('right');
+            else setStatus("сделай реран"); 
+            break;
     }
     
 });
