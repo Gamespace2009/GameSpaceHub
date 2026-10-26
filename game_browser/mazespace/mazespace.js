@@ -270,19 +270,13 @@ document.getElementById('rightBtn').addEventListener('click', () => chooseSide('
 
 document.addEventListener('keydown', (e) => {
     if (gameOver || isMoving) return;
-    if (isHoriz == true) {
-        switch (e.key) {
-        case 'ArrowLeft': chooseSide('left'); break;
-        case 'ArrowRight': chooseSide('right'); break;
-        }
+    switch (e.key) {
+        case 'ArrowUp': isHoriz? setStatus("сделай реран") :  chooseSide('up');break;
+        case 'ArrowDown': isHoriz? setStatus("сделай реран") : chooseSide('down'); break;
+        case 'ArrowLeft': isHoriz? chooseSide('left') : setStatus("сделай реран") ; break;
+        case 'ArrowRight': isHoriz? chooseSide('right') : setStatus("сделай реран"); break;
+    }
     
-    }
-    if (isHoriz == false) {
-        switch (e.key) {
-        case 'ArrowUp': chooseSide('up'); break;
-        case 'ArrowDown': chooseSide('down'); break;
-        }
-    }
 });
 
 // ============================================================
