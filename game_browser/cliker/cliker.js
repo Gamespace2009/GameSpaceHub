@@ -1,7 +1,7 @@
 var q = 0;
 var y = 1;
 var i = 0;
-var p = 100;
+var p = 40;
 var e = 10;
 var skore = document.getElementById("score");
 var phon = document.getElementById("meteor");
@@ -21,7 +21,7 @@ function level_up(){
         y--;
         y += 10;
     }
-    p*= 100;
+    p*= 10;
     if (i < kometa.length) { 
         phon.src = `${kometa[i]}`;
         
