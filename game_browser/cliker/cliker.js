@@ -19,7 +19,7 @@ function level_up(){
     }
     if (y == 1) {
         y--;
-        y += 10;
+        y += 40;
     }
     p*= 10;
     if (i < kometa.length) { 
